@@ -34,6 +34,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"os"
 	"strings"
@@ -56,6 +57,7 @@ func main() {
 
 	defer conn.Close()
 	c := pb.NewGreeterClient(conn)
+	ctx := context.Background()
 
 	// Contact the server and print out its response.
 	name := strings.Repeat("a", 1e6)
